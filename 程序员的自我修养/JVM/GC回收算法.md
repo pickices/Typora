@@ -20,13 +20,13 @@ FullGC：Full GC可以看做是Major GC+Minor GC共同进行的一整个过程�
 ## 复制算法
 
 1. 初始阶段，对象分配在Eden区（大对象直接进入老年代，通过-XX:PretenureSizeThreshold配置），此时S0和S1是空的（圆圈中的数字代表对象的年龄）
-   ![截图](C:\Users\拾荒老冰棍\Desktop\GC回收算法\aeae1cf809e23b63d7511a7bdfd21f0f.png)
+   ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200608.png)
 2. 当Eden区满了之后，进行MinorGC，经过扫描与标记，不再存活的对象被清除，存活的对象进入Survivor中的S0并且对象年龄+1，此时Eden被清空，S1是空的
-   ![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/b62706bbba9ffc6510b8b2c112e2c285.png)
+   ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200624.png)
 3. 然后随着对象增多又一次MinorGC后，Eden区和S0区存活的对象进入S1区并且对象年龄+1，Eden和S0区被清空
-   ![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/fc873adc80a6c7879256117c9058fca6.png)
+   ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200626.png)
 4. 又一次MinorGC后，和上面步骤类似，Eden区和S1区存活的对象进入S0区并且对象年龄+1，Eden和S1区被清空
-   ![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/f9b6b31c997102925f584f70c71e3ebe.png)
+   ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200638.png)
 5. 对象每熬过一次MinorGC其年龄就会加1，达到年龄阈值（可通过参数-XX:MaxTenuringThreshold配置，默认为15）的年轻代对象会晋升到老年代，随着进入老年代的对象越来越多，当老年代内存不够用时会发送MajorGC。
 
 
@@ -37,11 +37,11 @@ FullGC：Full GC可以看做是Major GC+Minor GC共同进行的一整个过程�
 
 - 标记阶段会通过可达性分析将不可达的对象标记出来。
 
-![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/3d1655db496945daf242058005bfd6df.png)
+![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200645.png)
 
 - 清除阶段会将标记阶段标记的垃圾对象清除。
 
-![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/180e80fcab9987d88b4d93924f7e6fdc.png)
+![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200650.png)
 
 #### 缺点：
 
@@ -56,15 +56,15 @@ FullGC：Full GC可以看做是Major GC+Minor GC共同进行的一整个过程�
 
 - 标记垃圾对象
 
-![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/3d1655db496945daf242058005bfd6df.png)
+![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200656.png)
 
 - 清除垃圾对象
 
-![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/180e80fcab9987d88b4d93924f7e6fdc.png)
+![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200720.png)
 
 - 内存碎片整理（可以在多次标记清除后再进行整理）
 
-![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/43dd9305ae25e1469efc3bbfdb8ebeb4.png)
+![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200725.png)
 
 
 
