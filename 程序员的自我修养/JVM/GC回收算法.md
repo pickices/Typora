@@ -20,7 +20,7 @@ FullGC：Full GC可以看做是Major GC+Minor GC共同进行的一整个过程�
 ## 复制算法
 
 1. 初始阶段，对象分配在Eden区（大对象直接进入老年代，通过-XX:PretenureSizeThreshold配置），此时S0和S1是空的（圆圈中的数字代表对象的年龄）
-   ![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/aeae1cf809e23b63d7511a7bdfd21f0f.png)
+   ![截图](C:\Users\拾荒老冰棍\Desktop\GC回收算法\aeae1cf809e23b63d7511a7bdfd21f0f.png)
 2. 当Eden区满了之后，进行MinorGC，经过扫描与标记，不再存活的对象被清除，存活的对象进入Survivor中的S0并且对象年龄+1，此时Eden被清空，S1是空的
    ![截图](C:/Users/拾荒老冰棍/Desktop/GC回收算法/b62706bbba9ffc6510b8b2c112e2c285.png)
 3. 然后随着对象增多又一次MinorGC后，Eden区和S0区存活的对象进入S1区并且对象年龄+1，Eden和S0区被清空
