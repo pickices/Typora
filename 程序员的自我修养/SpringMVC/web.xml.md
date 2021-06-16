@@ -1,7 +1,5 @@
 # web.xml
 
-<br/>
-
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"

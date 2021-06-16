@@ -1,7 +1,5 @@
 # JMM
 
-
-
 1. 什么是JMM
    
    JMM:JAVA Memory Model

@@ -1,7 +1,5 @@
 # Swagger
 
-<br/>
-
 ```java
 @Configuration
 @EnableSwagger2

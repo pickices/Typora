@@ -1,7 +1,5 @@
 # 整合Druid
 
-<br/>
-
 1. 需要自己为DruidDataSource绑定全局配置文件中的参数，再添加到容器中，而不再使用Spring Boot的自动生成；我们需要自己添加DruidDataSource 组件到容器中，并绑定属性；
    ```java
    package com.kuang.config;

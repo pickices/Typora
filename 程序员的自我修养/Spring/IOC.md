@@ -26,8 +26,7 @@
 - @value
 - 放在属性或者set方法上，可以直接给属性赋值@value(")
 
-**		Component会按照mvc三层架构生成几种衍生注解
-		功能和Component完全一样！！！，都是将某个类注册到Spring中，装配Bean**
+**Component会按照mvc三层架构生成几种衍生注解功能和Component完全一样！！！，都是将某个类注册到Spring中，装配Bean**
 
 - Dao层：@Repository
 - Service层：@Service

@@ -1,7 +1,5 @@
 # ServletContext
 
-
-
 - 所有Servlet共享一个ServletContext
 - 共享数据
   - 在某个 Servlet中保存的数据，可以在另外一个Servlet中拿到

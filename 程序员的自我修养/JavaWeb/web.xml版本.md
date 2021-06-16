@@ -1,7 +1,5 @@
 # web.xml版本
 
-
-
 maven自带的web模版项目版本老旧，更新为tomcat中的新版，如下代码可全选替换
 
 ```xml

@@ -1,7 +1,5 @@
 # Session和Cookie
 
-
-
 > Session和Cookie的区别
 
 - Cookie：把用户的数据写给用户的浏览器，浏览器保存（可以保存多个）

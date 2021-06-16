@@ -1,7 +1,5 @@
 # Controller和RestController
 
-<br/>
-
 - Controller
   
   如果方法体上没有@ResponseBody，则方法返回的字符串为转发位置。

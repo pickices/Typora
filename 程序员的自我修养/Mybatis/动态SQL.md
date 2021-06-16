@@ -1,7 +1,5 @@
 # 动态SQL
 
-<br/>
-
 ### choose
 
 ```xml
