@@ -1,4 +1,4 @@
-# synchronized（同步锁）
+# synchronized（同步锁，悲观锁）
 
 **synchronized锁的是需要修改的对象，而不是方法！**
 
