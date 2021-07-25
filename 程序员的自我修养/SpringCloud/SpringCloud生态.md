@@ -1,5 +1,15 @@
 # SpringCloud生态
 
+![image-20210714131936908](https://raw.githubusercontent.com/pickices/Typora/master/image/20210714131936.png)
+
+SpringCloud是一种生态，他包含以下组件：
+
+- API网关
+- 服务注册中心
+- 服务提供者
+- 服务消费者
+- 服务配置中心
+
 ## spring Cloud NetFlix（一站式解决方案）
 
 - Api网关：zuul组件
