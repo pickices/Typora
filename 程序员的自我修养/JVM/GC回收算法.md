@@ -6,7 +6,7 @@
 
 从年轻代空间（包括 Eden 和 Survivor 区域）回收内存被称为 Minor GC，也叫Young GC。因为Java对象大多具备朝生夕死的特征，所以MinorGC非常频繁，一般回收速度也比较快。一般采用复制算法。
 Minor GC触发条件
-Eden区域满了新生对象需要分配到新生代的Eden，当Eden区的内存不够时需要进行MinorGC
+Eden区域满了，新生对象需要分配到新生代的Eden，当Eden区的内存不够时需要进行MinorGC
 
 ### Major GC/Full GC
 
@@ -19,13 +19,19 @@ FullGC：Full GC可以看做是Major GC+Minor GC共同进行的一整个过程�
 
 1. 初始阶段，对象分配在Eden区（大对象直接进入老年代，通过-XX:PretenureSizeThreshold配置），此时S0和S1是空的（圆圈中的数字代表对象的年龄）
    ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200608.png)
+   
 2. 当Eden区满了之后，进行MinorGC，经过扫描与标记，不再存活的对象被清除，存活的对象进入Survivor中的S0并且对象年龄+1，此时Eden被清空，S1是空的
    ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200624.png)
+   
 3. 然后随着对象增多又一次MinorGC后，Eden区和S0区存活的对象进入S1区并且对象年龄+1，Eden和S0区被清空
    ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200626.png)
+   
 4. 又一次MinorGC后，和上面步骤类似，Eden区和S1区存活的对象进入S0区并且对象年龄+1，Eden和S1区被清空
    ![截图](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614200638.png)
-5. 对象每熬过一次MinorGC其年龄就会加1，达到年龄阈值（可通过参数-XX:MaxTenuringThreshold配置，默认为15）的年轻代对象会晋升到老年代，随着进入老年代的对象越来越多，当老年代内存不够用时会发送MajorGC。
+   
+5. 对象每熬过一次MinorGC其年龄就会加1，达到年龄阈值（可通过参数-XX:MaxTenuringThreshold配置，默认为15）的年轻代对象会晋升到老年代，随着进入老年代的对象越来越多，当老年代内存不够用时会触发MajorGC
+
+   ![5e67c64bf0998cd53b483778a60af7fe](https://raw.githubusercontent.com/pickices/Typora/master/image/20210614201353.png)
 
 
 
